@@ -9,6 +9,7 @@ function App() {
   const [expenseName, setExpenseName] = useState('')
   const [expenseAmount, setExpenseAmount] = useState('')
   const [category, setCategory] = useState('')
+  const total = expenses.reduce((acc, expense) => acc + expense.amount, 0)
 
   // error messages for an invalid input
   const [error, setError] = useState('')
@@ -103,6 +104,7 @@ function App() {
           <hr />
         </div>
       ))}
+      <h3>Total: ${total.toFixed(2)}</h3>
     </div>
   )
 }
