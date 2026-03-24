@@ -1,9 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
   // array to store all expenses 
-  //the database for right nwo 
-  const [expenses, setExpenses] = useState([])
+  //the database for right now is just an array  
+  //also using local storage to save expenses when user refreshes page 
+  const [expenses, setExpenses] = useState(() => {
+    const saved = localStorage.getItem('expenses')
+    return saved ? JSON.parse(saved) : [] 
+  })
 
   //inputs - Named/Amount/Category 
   const [expenseName, setExpenseName] = useState('')
@@ -13,6 +17,11 @@ function App() {
 
   // error messages for an invalid input
   const [error, setError] = useState('')
+  
+  //save expenses to local storage 
+  useEffect(() => {
+    localStorage.setItem('expenses', JSON.stringify(expenses))
+  }, [expenses])
 
   //run when user clicks "Add Expense"
   function submitExpense() {
