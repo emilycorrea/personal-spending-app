@@ -81,7 +81,7 @@ function App() {
       {/* Input for expense AMOUNT */}
       <input
         type="number"
-        placeholder="Enter expense amount"
+        placeholder="Enter amount $"
         value={expenseAmount}
         onChange={(e) => setExpenseAmount(e.target.value)}
       />
@@ -97,20 +97,21 @@ function App() {
       </select>
 
       {/* button triggers submitExpense function */}
-      <button onClick={submitExpense}>Add Expense</button>
+      <button className="button" onClick={submitExpense}>
+        Add Expense
+      </button>
 
       {/* Show error message only if it exists */}
-      {error && <p>{error}</p>}
+      {error && <p className="error">{error}</p>}
 
       <h2>Expenses</h2>
 
       {/* loop through expenses array and show each one */}
       {expenses.map((expense, index) => (
-        <div key={index}>
+        <div className="expense" key={index}>
           <p>Name: {expense.name}</p>
           <p>Amount: ${expense.amount.toFixed(2)}</p>
           <p>Category: {expense.category}</p>
-          <hr />
         </div>
       ))}
       <h3>Total: ${total.toFixed(2)}</h3>
