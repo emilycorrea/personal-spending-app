@@ -27,6 +27,20 @@ body {
   color: rgb(216, 54, 54);
   margin: 0 auto;
 }
+
+.delete-button {
+  margin-right: auto;       
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  color: rgb(216, 54, 54);
+  background-color: #f8d7da;
+  font-size: 12px;
+}
+.expense:hover .delete-button {
+  opacity: 1;
+}
+
 .expense {
   background-color: #ffffff;
   text-align: left;
@@ -35,3 +49,4 @@ body {
   width: 50%;
   margin: 5px auto;
 }
+

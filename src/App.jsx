@@ -51,6 +51,7 @@ function App() {
 
     // create a new expense object
     const newExpense = {
+      id: Date.now(), // unique id based on timestamp
       name: expenseName,
       amount: numericAmount,
       category: category,
@@ -64,6 +65,12 @@ function App() {
     setExpenseName('')
     setExpenseAmount('')
     setCategory('')
+  }
+
+  function deleteExpense(id) {
+    // filter out with the matching id
+    const updatedExpenses = expenses.filter(expense => expense.id !== id)
+    setExpenses(updatedExpenses)
   }
 
   return (
@@ -112,8 +119,13 @@ function App() {
           <p>Name: {expense.name}</p>
           <p>Amount: ${expense.amount.toFixed(2)}</p>
           <p>Category: {expense.category}</p>
+      
+          <button className="delete-button" onClick={() => deleteExpense(expense.id)}>
+            Delete
+          </button>
         </div>
-      ))}
+        ))}
+
       <h3>Total: ${total.toFixed(2)}</h3>
     </div>
   )
