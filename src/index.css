@@ -1,52 +1,100 @@
 body {
-  background-color: #6da3d2;
-  text-align: center;
-  margin: 10px;
+  background-color: #f4f7fb;
   font-family: Arial, sans-serif;
-  padding: 10px;
+  margin: 0;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 10px;
-  border-radius: 5px;
-  margin: 10px;
+.app {
+  max-width: 750px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.summary-card,
+.form-card,
+.expenses-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.form-card input,
+.form-card select,
+.form-card button {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.expenses-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.expense {
+  background-color: #f9fbff;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .button {
   background-color: #9ad19c;
-  color: rgb(0, 0, 0);
+  border: none;
   cursor: pointer;
 }
 
 .error {
   text-align: center;
-  padding: 10px;
-  width: 50%;
+  width: 70%;
   background-color: #f8d7da;
   color: rgb(216, 54, 54);
-  margin: 0 auto;
+  margin: 10px auto;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 .delete-button {
-  margin-right: auto;       
   opacity: 0;
   transition: opacity 0.2s ease;
   cursor: pointer;
   color: rgb(216, 54, 54);
-  background-color: #f8d7da;
-  font-size: 12px;
+  background: none;
+  border: none;
 }
+
 .expense:hover .delete-button {
   opacity: 1;
 }
 
-.expense {
-  background-color: #ffffff;
-  text-align: left;
-  font-weight: bold;
-  color: rgb(0, 0, 0);
-  width: 50%;
-  margin: 5px auto;
+.delete-all-button {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  color: rgb(216, 54, 54);
+  background:#f8d7da;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+.expenses-card:hover .delete-all-button {
+  opacity: 1;
 }
 
+.empty-message {
+  text-align: center;
+  color: #777;
+  margin: 20px 0;
+  font-style: italic;
+}
