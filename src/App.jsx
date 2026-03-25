@@ -17,6 +17,8 @@ function App() {
 
   // error messages for an invalid input
   const [error, setError] = useState('')
+  // filter for categories
+  const [filter, setFilter] = useState('all')
   
   //save expenses to local storage 
   useEffect(() => {
@@ -73,62 +75,94 @@ function App() {
     setExpenses(updatedExpenses)
   }
 
+  const filteredExpenses =
+  filter === 'all'
+    ? expenses
+    : expenses.filter((expense) => expense.category === filter)
+    //if the filter is null give a message that says "No expenses in this category"
+
   return (
-    <div>
+  <div className="app">
       <h1>Personal Spending</h1>
 
-      {/* Input for expense NAME */}
-      <input
-        type="text"
-        placeholder="Enter expense name"
-        value={expenseName}
-        onChange={(e) => setExpenseName(e.target.value)}
-      />
+      <div className="summary-card">
+        <h3>Total: ${total.toFixed(2)}</h3>
+      </div>
 
-      {/* Input for expense AMOUNT */}
-      <input
-        type="number"
-        placeholder="Enter amount $"
-        value={expenseAmount}
-        onChange={(e) => setExpenseAmount(e.target.value)}
-      />
+      <div className="form-card">
+        <input
+          type="text"
+          placeholder="Enter expense name"
+          value={expenseName}
+          onChange={(e) => setExpenseName(e.target.value)}
+        />
 
-      {/* Dropdown for selecting CATEGORY */}
-      <select value={category} onChange={(e) => setCategory(e.target.value)}>
-        <option value="">Select category</option>
-        <option value="food">Food</option>
-        <option value="transportation">Transportation</option>
-        <option value="entertainment">Entertainment</option>
-        <option value="utilities">Utilities</option>
-        <option value="other">Other</option>
-      </select>
+        <input
+          type="number"
+          placeholder="Enter amount $"
+          value={expenseAmount}
+          onChange={(e) => setExpenseAmount(e.target.value)}
+        />
 
-      {/* button triggers submitExpense function */}
-      <button className="button" onClick={submitExpense}>
-        Add Expense
-      </button>
+        <select value={category} onChange={(e) => setCategory(e.target.value)}>
+          <option value="">Select category</option>
+          <option value="food">Food</option>
+          <option value="transportation">Transportation</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="utilities">Utilities</option>
+          <option value="other">Other</option>
+        </select>
 
-      {/* Show error message only if it exists */}
-      {error && <p className="error">{error}</p>}
+        <button className="button" onClick={submitExpense}>
+          Add Expense
+        </button>
 
-      <h2>Expenses</h2>
+        {error && <p className="error">{error}</p>}
+      </div>
 
-      {/* loop through expenses array and show each one */}
-      {expenses.map((expense, index) => (
-        <div className="expense" key={index}>
-          <p>Name: {expense.name}</p>
-          <p>Amount: ${expense.amount.toFixed(2)}</p>
-          <p>Category: {expense.category}</p>
-      
-          <button className="delete-button" onClick={() => deleteExpense(expense.id)}>
-            Delete
-          </button>
+      <div className="expenses-card">
+        <div className="expenses-header">
+          <h2>Expenses</h2>
+
+          <select
+            className="filter-select"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            <option value="all">All</option>
+            <option value="food">Food</option>
+            <option value="transportation">Transportation</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="utilities">Utilities</option>
+            <option value="other">Other</option>
+          </select>
         </div>
-        ))}
 
-      <h3>Total: ${total.toFixed(2)}</h3>
+        {filteredExpenses.length === 0 ? (
+          <p className="empty-message">
+              {filter === 'all' ? 'No expenses added yet.' : 'No expenses in this category.'}
+          </p>
+        ) : (
+          filteredExpenses.map((expense) => (
+            <div className="expense" key={expense.id}>
+              <p>Name: {expense.name}</p>
+              <p>Amount: ${expense.amount.toFixed(2)}</p>
+              <p>Category: {expense.category}</p>
+
+              <button
+                className="delete-button"
+                onClick={() => deleteExpense(expense.id)}
+              >
+                Delete
+              </button>
+            </div>
+          ))
+        )}
+      </div>
     </div>
   )
 }
 
 export default App
+
+
