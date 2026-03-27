@@ -1,0 +1,35 @@
+Date,Description,Merchant,Category,Debit,Credit,Balance
+2024-03-01,Opening Balance,,,,, 5420.00
+2024-03-01,Grocery purchase,Whole Foods Market,Groceries,84.37,,5335.63
+2024-03-02,Online transfer,,Salary,,3200.00,8535.63
+2024-03-02,Coffee shop,Starbucks #4821,Dining,6.75,,8528.88
+2024-03-03,Streaming subscription,Netflix,Entertainment,15.49,,8513.39
+2024-03-04,Gas station,Shell Gas Station,Transport,52.10,,8461.29
+2024-03-05,ATM Withdrawal,Chase ATM 5th Ave,ATM,200.00,,8261.29
+2024-03-06,Restaurant dinner,Chipotle Mexican Grill,Dining,23.45,,8237.84
+2024-03-07,Online shopping,Amazon.com,Shopping,139.99,,8097.85
+2024-03-08,Pharmacy,CVS Pharmacy #0082,Health,18.62,,8079.23
+2024-03-09,Gym membership,Planet Fitness,Health,24.99,,8054.24
+2024-03-10,Utility bill,Con Edison,Utilities,110.00,,7944.24
+2024-03-11,Coffee shop,Blue Bottle Coffee,Dining,5.50,,7938.74
+2024-03-12,Grocery purchase,Trader Joe's,Groceries,62.18,,7876.56
+2024-03-13,Online shopping,Target,Shopping,47.30,,7829.26
+2024-03-14,Restaurant lunch,Shake Shack,Dining,16.80,,7812.46
+2024-03-15,Rideshare,Uber,Transport,14.25,,7798.21
+2024-03-15,Online shopping,Amazon.com,Shopping,29.99,,7768.22
+2024-03-16,Interest credit,,Interest,,4.12,7772.34
+2024-03-17,Movie tickets,AMC Theatres,Entertainment,32.00,,7740.34
+2024-03-18,Haircut,Great Clips,Personal Care,22.00,,7718.34
+2024-03-19,Grocery purchase,Whole Foods Market,Groceries,91.44,,7626.90
+2024-03-20,Phone bill,Verizon Wireless,Utilities,85.00,,7541.90
+2024-03-21,Coffee shop,Starbucks #4821,Dining,7.25,,7534.65
+2024-03-22,Online shopping,Etsy,Shopping,54.00,,7480.65
+2024-03-23,Rideshare,Lyft,Transport,11.90,,7468.75
+2024-03-24,Restaurant dinner,Olive Garden,Dining,48.75,,7420.00
+2024-03-25,Bookstore,Barnes & Noble,Entertainment,21.99,,7398.01
+2024-03-26,Grocery purchase,Trader Joe's,Groceries,55.70,,7342.31
+2024-03-27,ATM Withdrawal,Wells Fargo ATM,ATM,100.00,,7242.31
+2024-03-28,Online shopping,Amazon.com,Shopping,89.95,,7152.36
+2024-03-29,Coffee shop,Dunkin Donuts,Dining,4.99,,7147.37
+2024-03-30,Pet supplies,PetSmart,Shopping,36.48,,7110.89
+2024-03-31,Restaurant lunch,Panera Bread,Dining,13.20,,7097.69

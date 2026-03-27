@@ -1,5 +1,9 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #f4f7fb;
+  background-color: #f0f2f5;
   font-family: Arial, sans-serif;
   margin: 0;
 }
@@ -12,28 +16,83 @@ body {
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #1a1a2e;
 }
 
+/* ── shared card style ── */
 .summary-card,
 .form-card,
-.expenses-card {
+.expenses-card,
+.import-card,
+.chart-card {
   background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
+/* ── import card ── */
+.import-card p {
+  margin: 0 0 10px 0;
+  font-size: 14px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* ── total summary card ── */
+.summary-card {
+  display: flex;
+  align-items: center;
+  padding: 16px 24px;
+}
+
+.summary-card h3 {
+  margin: 0;
+  font-size: 22px;
+  color: #1a1a2e;
+}
+
+/* ── add expense form ── */
 .form-card input,
-.form-card select,
-.form-card button {
+.form-card select {
   display: block;
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   border-radius: 8px;
+  border: 1px solid #dde3ee;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  color: #1a1a2e;
 }
 
+.form-card input:focus,
+.form-card select:focus {
+  border-color: #4a6fa5;
+}
+
+/* ── add expense button ── */
+.button {
+  display: block;
+  width: 100%;
+  padding: 11px;
+  background-color: #4a6fa5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.button:hover {
+  background-color: #3a5a8f;
+}
+
+/* ── expenses list header (title + filter dropdown) ── */
 .expenses-header {
   display: flex;
   justify-content: space-between;
@@ -41,60 +100,210 @@ h1 {
   margin-bottom: 16px;
 }
 
-.expense {
-  background-color: #f9fbff;
-  border-radius: 10px;
-  padding: 12px;
-  margin-bottom: 10px;
-  position: relative;
+.expenses-header h2 {
+  margin: 0;
+  font-size: 18px;
+  color: #1a1a2e;
 }
 
-.button {
-  background-color: #9ad19c;
-  border: none;
-  cursor: pointer;
-}
-
-.error {
-  text-align: center;
-  width: 70%;
-  background-color: #f8d7da;
-  color: rgb(216, 54, 54);
-  margin: 10px auto;
+/* ── category filter dropdown ── */
+.filter-select {
+  border: 1px solid #dde3ee;
   border-radius: 8px;
-  padding: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: #1a1a2e;
+  outline: none;
 }
 
+/* ── individual expense row ── */
+.expense {
+  background-color: #f8f9fc;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* name takes up most of the row */
+.expense-name {
+  flex: 2;
+  font-size: 14px;
+  color: #1a1a2e;
+  font-weight: 500;
+}
+
+/* category sits in the middle, centered */
+.expense-category {
+  flex: 1;
+  font-size: 13px;
+  color: #888;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+/* amount is right-aligned and never wraps */
+.expense-amount {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a2e;
+  white-space: nowrap;
+}
+
+/* date is small and muted */
+.expense-date {
+  font-size: 12px;
+  color: #aaa;
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+/* delete button only shows on row hover */
 .delete-button {
   opacity: 0;
   transition: opacity 0.2s ease;
   cursor: pointer;
-  color: rgb(216, 54, 54);
+  color: #e05252;
   background: none;
   border: none;
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 0;
 }
 
 .expense:hover .delete-button {
   opacity: 1;
 }
 
+/* ── delete all button (shows on card hover) ── */
 .delete-all-button {
   opacity: 0;
   transition: opacity 0.2s ease;
   cursor: pointer;
-  color: rgb(216, 54, 54);
-  background:#f8d7da;
-  padding: 10px;
+  color: #e05252;
+  background: #fdecea;
+  padding: 6px 12px;
   border-radius: 8px;
   border: none;
+  font-size: 13px;
 }
+
 .expenses-card:hover .delete-all-button {
   opacity: 1;
 }
 
+/* ── empty state message ── */
 .empty-message {
   text-align: center;
-  color: #777;
+  color: #999;
   margin: 20px 0;
   font-style: italic;
+  font-size: 14px;
+}
+
+/* ── form validation error ── */
+.error {
+  text-align: center;
+  background-color: #fdecea;
+  color: #e05252;
+  margin: 10px 0 0 0;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 13px;
+}
+
+/* ── spending pie chart ── */
+.chart-card h2 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  color: #1a1a2e;
+}
+
+/* chart and legend sit side by side */
+.chart-layout {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ── category legend ── */
+.chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+/* colored square matching pie slice */
+.legend-square {
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+  flex-shrink: 0;
+}
+
+.legend-name {
+  flex: 1;
+  color: #333;
+}
+
+.legend-amount {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+/* ── sortable column headers ── */
+.expense-columns {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 16px 8px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.expense-columns span {
+  cursor: pointer;
+  user-select: none;
+}
+
+.expense-columns span:hover {
+  color: #4a6fa5;
+}
+
+.expense-columns span:first-child {
+  min-width: 60px; /* Date — matches .expense-date */
+}
+
+.expense-columns span:nth-child(2) {
+  flex: 2; /* Name — matches .expense-name */
+}
+
+.expense-columns span:nth-child(3) {
+  flex: 1; /* Category — matches .expense-category */
+  text-align: center;
+}
+
+.expense-columns span:nth-child(4) {
+  white-space: nowrap; /* Amount */
+}
+
+
+/* ── header controls (delete all + filter) ── */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }

@@ -1,0 +1,36 @@
+Date,Merchant,Description,Category,Debit,Credit,Balance
+03/01/2024,Direct Deposit,Payroll,Salary,,4250.00,4250.00
+03/02/2024,Whole Foods Market,Grocery run,Groceries,112.43,,4137.57
+03/02/2024,Starbucks,Morning coffee,Dining,6.85,,4130.72
+03/03/2024,Netflix,Monthly subscription,Entertainment,15.49,,4115.23
+03/03/2024,Con Edison,Electric bill,Utilities,98.00,,4017.23
+03/04/2024,Shell,Gas fill up,Transport,58.20,,3959.03
+03/05/2024,Uber,Ride to airport,Transport,34.75,,3924.28
+03/05/2024,Delta Airlines,Flight to Chicago,Travel,289.00,,3635.28
+03/06/2024,Marriott Hotels,Hotel stay,Travel,178.50,,3456.78
+03/07/2024,Chipotle,Lunch,Dining,14.30,,3442.48
+03/08/2024,Amazon,Household items,Shopping,67.99,,3374.49
+03/09/2024,CVS Pharmacy,Medicine,Health,23.47,,3351.02
+03/10/2024,Planet Fitness,Monthly membership,Personal,24.99,,3326.03
+03/11/2024,Trader Joes,Weekly groceries,Groceries,89.32,,3236.71
+03/11/2024,Venmo,Transfer to friend,Personal,50.00,,3186.71
+03/12/2024,Spotify,Music subscription,Entertainment,9.99,,3176.72
+03/13/2024,Verizon,Phone bill,Utilities,85.00,,3091.72
+03/14/2024,H&M,Clothes shopping,Shopping,134.00,,2957.72
+03/15/2024,Panera Bread,Lunch meeting,Dining,22.80,,2934.92
+03/16/2024,Target,Home supplies,Shopping,88.54,,2846.38
+03/17/2024,AMC Theatres,Movie night,Entertainment,36.00,,2810.38
+03/18/2024,Whole Foods Market,Grocery run,Groceries,76.19,,2734.19
+03/19/2024,Lyft,Ride home,Transport,18.40,,2715.79
+03/20/2024,Apple,App purchase,Entertainment,4.99,,2710.80
+03/21/2024,Sephora,Skincare,Personal,64.00,,2646.80
+03/22/2024,Shake Shack,Dinner,Dining,31.50,,2615.30
+03/23/2024,Barnes and Noble,Books,Entertainment,27.99,,2587.31
+03/24/2024,ATM Withdrawal,Cash,ATM,200.00,,2387.31
+03/25/2024,Amazon,Electronics,Shopping,199.99,,2187.32
+03/26/2024,Dunkin,Coffee,Dining,5.25,,2182.07
+03/27/2024,Chewy,Pet food,Shopping,54.30,,2127.77
+03/28/2024,Equinox,Gym membership,Personal,85.00,,2042.77
+03/29/2024,Whole Foods Market,Weekend groceries,Groceries,102.67,,1940.10
+03/30/2024,interest credit,,Interest,,3.20,1943.30
+03/31/2024,Zara,Spring clothes,Shopping,210.00,,1733.30
