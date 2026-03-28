@@ -1,5 +1,5 @@
+import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
-import { CATEGORY_OPTIONS } from "../constants/categories";
 
 const COLORS = {
   food: "#e07b54",
@@ -12,13 +12,21 @@ const COLORS = {
 };
 
 export function SpendingChart({ expenses }) {
-  const data = CATEGORY_OPTIONS.map((cat) => ({
-    name: cat.charAt(0).toUpperCase() + cat.slice(1),
-    key: cat,
-    value: expenses
-      .filter((e) => e.category === cat)
-      .reduce((sum, e) => sum + e.amount, 0),
-  })).filter((entry) => entry.value > 0);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/expenses/summary")
+      .then((res) => res.json())
+      .then((rows) => {
+        const formatted = rows.map((row) => ({
+          name: row.category.charAt(0).toUpperCase() + row.category.slice(1),
+          key: row.category,
+          value: row.total,
+        }));
+        setData(formatted);
+      })
+      .catch((err) => console.error("Error fetching summary:", err));
+  }, [expenses]); // re-fetches whenever expenses change in the parent
 
   if (data.length === 0) return null;
 
