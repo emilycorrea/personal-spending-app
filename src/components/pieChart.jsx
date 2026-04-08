@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 const COLORS = {
   food: "#e07b54",
   travel: "#4a6fa5",
@@ -15,7 +16,7 @@ export function SpendingChart({ expenses }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/expenses/summary")
+    fetch(`${API_URL}/expenses/summary`)
       .then((res) => res.json())
       .then((rows) => {
         const formatted = rows.map((row) => ({

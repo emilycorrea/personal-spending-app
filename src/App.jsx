@@ -7,13 +7,14 @@ import { normalizeDate } from "./utils/normalizeDate";
 import { handleExpenseName } from "./utils/handleExpenseName";
 import { getDebitAmount } from "./utils/getDebitAmount";
 import { SpendingChart } from "./components/pieChart";
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
 function App() {
   //database connection
   //fetch expenses from the backend and store them in the expenses state variable
   const [expenses, setExpenses] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/expenses")
+    fetch(`${API_URL}/expenses`)
       .then((res) => res.json())
       .then((data) => setExpenses(data))
       .catch((err) => console.error("Error fetching expenses:", err));
@@ -31,7 +32,7 @@ function App() {
   const [total, setTotal] = useState(0);
 
   useEffect(() => {
-    fetch("http://localhost:3000/expenses/summary")
+    fetch(`${API_URL}/expenses/summary`)
       .then((res) => res.json())
       .then((rows) => {
         const sum = rows.reduce((acc, row) => acc + row.total, 0);
@@ -59,12 +60,12 @@ function App() {
 
   //fetch expenses from the backend
   // store them in the expenses state variable
-  useEffect(() => {
-    fetch("http://localhost:3000/expenses")
-      .then((res) => res.json())
-      .then((data) => setExpenses(data))
-      .catch((err) => console.error("Error fetching expenses:", err));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${API_URL}/expenses`)
+  //     .then((res) => res.json())
+  //     .then((data) => setExpenses(data))
+  //     .catch((err) => console.error("Error fetching expenses:", err));
+  // }, []);
 
   function submitExpense() {
     const numericAmount = Number(expenseAmount);
@@ -98,7 +99,7 @@ function App() {
       date: expenseDate,
     };
 
-    fetch("http://localhost:3000/expenses", {
+    fetch(`${API_URL}/expenses`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -117,7 +118,7 @@ function App() {
   }
 
   function deleteExpense(id) {
-    fetch(`http://localhost:3000/expenses/${id}`, {
+    fetch(`${API_URL}/expenses/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -128,7 +129,7 @@ function App() {
   }
 
   function deleteAllExpenses() {
-    fetch("http://localhost:3000/expenses", {
+    fetch(`${API_URL}/expenses`, {
       method: "DELETE",
     })
       .then((res) => {
@@ -170,7 +171,7 @@ function App() {
         // POST each expense to the backend
         Promise.all(
           importedExpenses.map((expense) =>
-            fetch("http://localhost:3000/expenses", {
+            fetch(`${API_URL}/expenses`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(expense),
@@ -212,7 +213,7 @@ function App() {
         <h3>Total: ${total.toFixed(2)}</h3>
       </div>
 
-      <SpendingChart expenses={expenses} />
+      <SpendingChart expenses={expenses} /> 
 
       <div className="form-card">
         <input

@@ -5,8 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
-
+app.use(
+  cors({
+    origin: ["http://localhost:5173"],
+  })
+);
 // Welcome route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to the server" });
