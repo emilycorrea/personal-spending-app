@@ -8,6 +8,7 @@ import { handleExpenseName } from "./utils/handleExpenseName";
 import { getDebitAmount } from "./utils/getDebitAmount";
 import { SpendingChart } from "./components/pieChart";
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+console.log("API_URL:", API_URL);
 
 function App() {
   //database connection

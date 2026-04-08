@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
 const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const COLORS = {
   food: "#e07b54",
   travel: "#4a6fa5",
